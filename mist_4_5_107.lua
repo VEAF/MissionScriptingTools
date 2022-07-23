@@ -1713,6 +1713,11 @@ do -- the main scope
             --end
 		end
 
+		--option that the user can set to have the group name equal to the unit name if the unit name/group name is not already taken by another unit
+		if not newGroup.sameName then
+			newGroup.sameName = false
+		end
+
 		if not newGroup.hidden then
 			newGroup.hidden = false
 		end
@@ -1743,7 +1748,8 @@ do -- the main scope
 					newGroup.units[unitIndex].name = newGroup.units[unitIndex].name
 				end
 			end
-			if newGroup.clone or not unitData.name then
+			--if the unit name was not given or, in the case of a clone, if the specified unit name is not taken by any other units but the user did not request to keep that given name -> then generate a new unit name from the group name and unit index
+			if not unitData.name or (newGroup.clone and (mist.DBs.unitsByName[unitData.name] or not newGroup.sameName)) then
 				newGroup.units[unitIndex].name = tostring(newGroup.name .. ' unit' .. unitIndex)
 			end
 
@@ -1825,6 +1831,7 @@ do -- the main scope
 		-- sanitize table
 		newGroup.groupName = nil
 		newGroup.clone = nil
+		newGroup.sameName = nil
 		newGroup.category = nil
 		newGroup.country = nil
 
