@@ -654,7 +654,9 @@ do -- the main scope
             ["Tanker Elnya 160"] = "elnya",
             ["F-shape barrier"] = "f_bar_cargo",
             ["Helipad Single"] = "farp",
+			["FARP_SINGLE_01"] = "farp", --both of these entries are the same but this one has the correct typeName as per the DCS units datatable
             ["FARP"] = "farps",
+			["Invisible FARP"] = "invisiblefarp",
             ["Fueltank"] = "fueltank_cargo",
             ["Gate"] = "gate",
             ["FARP Fuel Depot"] = "gsm rus",
