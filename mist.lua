@@ -35,7 +35,7 @@ mist = {}
 -- don't change these
 mist.majorVersion = 4
 mist.minorVersion = 5
-mist.build = "128-DYNSLOTS-01"
+mist.build = "128-DYNSLOTS-01-VEAF"
 
 -- forward declaration of log shorthand
 local log
@@ -1971,7 +1971,7 @@ do -- the main scope
 		if not newGroup.sameName then
 			newGroup.sameName = false
 		end
-		
+
 		if not newGroup.hidden then
 			newGroup.hidden = false
 		end
